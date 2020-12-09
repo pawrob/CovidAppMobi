@@ -1,9 +1,12 @@
 package com.example.covidbook.ui.home;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -28,6 +31,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
+            }
+        });
+        final ImageView imageView = root.findViewById(R.id.profile_img);
+        homeViewModel.getImage().observe(getViewLifecycleOwner(), new Observer<Bitmap>() {
+            @Override
+            public void onChanged(@Nullable Bitmap b) {
+//                imageView.setImageBitmap(b);
             }
         });
         return root;
