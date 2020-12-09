@@ -19,7 +19,8 @@
 
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="com.example.covidbook.ui.settings.SettingsFragment"
+        android:name="com.example.covidbook.SettingsActivity$SettingsFragment"
         android:label="@string/title_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/settings_activity" />
+
 </navigation>
