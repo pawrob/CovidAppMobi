@@ -4,7 +4,7 @@
     <string name="title_add">Add note</string>
     <string name="title_settings">Settings</string>
     <string name="title_activity_settings">SettingsActivity</string>
-
+    <string name="api_key" translatable="false">AIzaSyCdObFA4dKAaD6nq7yvDLD8vGrdi3n2Gxg</string>
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
