@@ -1,11 +1,13 @@
 package com.example.covidbook.ui.home;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,7 +17,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.covidbook.MainActivity;
+import com.example.covidbook.MapActivity;
 import com.example.covidbook.R;
+import com.example.covidbook.info.image.ImageChooserActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -33,13 +38,25 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
         final ImageView imageView = root.findViewById(R.id.profile_img);
         homeViewModel.getImage().observe(getViewLifecycleOwner(), new Observer<Bitmap>() {
             @Override
             public void onChanged(@Nullable Bitmap b) {
 //                imageView.setImageBitmap(b);
+//                HomeViewModel.setBmp(BitmapFactory.decodeFile(ImageChooserActivity.getPicturePath()));
             }
         });
+
+        final Button button = root.findViewById(R.id.local_hospitals_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), MapActivity.class));
+            }
+        });
+
+
         return root;
     }
 }

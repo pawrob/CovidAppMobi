@@ -70,8 +70,8 @@ public class ImageChooserActivity extends AppCompatActivity {
                 Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
                 cursor.moveToFirst();
                 int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                setPicturePath(cursor.getString(columnIndex));
-                //String picturePath = cursor.getString(columnIndex);
+                //setPicturePath(cursor.getString(columnIndex));
+                String picturePath = cursor.getString(columnIndex);
                 cursor.close();
                 imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
             }

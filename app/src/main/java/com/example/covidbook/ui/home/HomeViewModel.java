@@ -16,13 +16,22 @@ public class HomeViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
     private MutableLiveData<Bitmap> mImage;
+    private Bitmap bmp;
 
     public HomeViewModel() {
         mText = new MutableLiveData<>();
         mImage = new MutableLiveData<>();
         mText.setValue("This is home fragment");
-        mImage.setValue(BitmapFactory.decodeFile(ImageChooserActivity.getPicturePath()));
+//        mImage.setValue(bmp);
     }
+
+    public void setmImage(MutableLiveData<Bitmap> mImage) {
+        this.mImage = mImage;
+    }
+
+//    public void setBmp(Bitmap bmp) {
+//        this.bmp = bmp;
+//    }
 
     public LiveData<String> getText() {
         return mText;
