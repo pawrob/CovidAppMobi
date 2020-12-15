@@ -29,34 +29,34 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        searchView =(SearchView)findViewById(R.id.sv_location);
+//        searchView =(SearchView)findViewById(R.id.sv_location);
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.google_map);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                String location = MapActivity.this.searchView.getQuery().toString();
-                List<Address> addressList = null;
-                if(location!=null||!location.equals("")){
-                    try {
-                        addressList = new Geocoder(MapActivity.this).getFromLocationName(location, 1);
-                    }
-                    catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    Address address = addressList.get(0);
-                    LatLng latLng = new LatLng(address.getLatitude(),address.getLongitude());
-                    map.addMarker(new MarkerOptions().position(latLng).title(location));
-                    map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10.0f));
-                }
-
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                String location = MapActivity.this.searchView.getQuery().toString();
+//                List<Address> addressList = null;
+//                if(location!=null||!location.equals("")){
+//                    try {
+//                        addressList = new Geocoder(MapActivity.this).getFromLocationName(location, 1);
+//                    }
+//                    catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                    Address address = addressList.get(0);
+//                    LatLng latLng = new LatLng(address.getLatitude(),address.getLongitude());
+//                    map.addMarker(new MarkerOptions().position(latLng).title(location));
+//                    map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10.0f));
+//                }
+//
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                return false;
+//            }
+//        });
         mapFragment.getMapAsync(this);
     }
 
