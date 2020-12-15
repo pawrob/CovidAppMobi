@@ -7,6 +7,7 @@
     android:layout_marginBottom="50dp"
     android:fillViewport="true"
     android:orientation="vertical">
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,7 +24,8 @@
         android:numStars="5"
         android:stepSize="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/RatingBar"/>
 
     <Button
         android:id="@+id/submitButton"
@@ -31,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="156dp"
         android:layout_marginTop="908dp"
-        android:text="Submit"
+        android:text="@string/submit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="152dp"
         android:layout_marginTop="860dp"
-        android:text="Your parameters"
+        android:text="@string/your_parameters"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -69,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="128dp"
         android:layout_marginTop="124dp"
-        android:text="Input your temperature: "
+        android:text="@string/input_your_temperature"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,12 +81,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="112dp"
         android:layout_marginTop="320dp"
-        android:text="How many people did u pass?"
+        android:text="@string/how_many_people_did_u_pass"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
 
+        android:id="@+id/radio"
         android:layout_width="100dp"
         android:layout_height="95dp"
         android:layout_centerInParent="true"
@@ -92,15 +95,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/radio">
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <RadioButton
             android:id="@+id/yesRadio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Yes"
+            android:text="@string/yes"
             tools:layout_editor_absoluteX="145dp"
             tools:layout_editor_absoluteY="533dp" />
 
@@ -109,7 +111,7 @@
             android:layout_width="64dp"
             android:layout_height="44dp"
             android:checked="true"
-            android:text="No"
+            android:text="@string/no"
             tools:layout_editor_absoluteX="134dp"
             tools:layout_editor_absoluteY="528dp" />
 
@@ -120,7 +122,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="692dp"
-        android:hint="Your Notes"
+        android:hint="@string/your_notes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

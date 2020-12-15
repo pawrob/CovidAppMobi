@@ -11,9 +11,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -21,6 +24,7 @@ import com.example.covidbook.MainActivity;
 import com.example.covidbook.MapActivity;
 import com.example.covidbook.R;
 import com.example.covidbook.info.image.ImageChooserActivity;
+import com.example.covidbook.ui.add.AddFragment;
 
 public class HomeFragment extends Fragment {
 
@@ -48,15 +52,34 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        final Button button = root.findViewById(R.id.local_hospitals_button);
-        button.setOnClickListener(new View.OnClickListener() {
+        final Button statusbtn = root.findViewById(R.id.status_update_button);
+        statusbtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), MapActivity.class));
+            public void onClick(View view) {
+                AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                AddFragment addFrag = new AddFragment();
+                activity.getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.home_frag, addFrag)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
-
+        createButton(R.id.status_update_button, AddFragment.class, root);
+        createButton(R.id.local_hospitals_button, MapActivity.class, root);
+        createButton(R.id.default_clinic_button, MapActivity.class, root);
+        createButton(R.id.emergency_screen_button, MapActivity.class, root);
 
         return root;
+    }
+
+    public void createButton (@IdRes int viewId, Class chosenClass, View root) {
+        Button chosenButton = root.findViewById(viewId);
+        chosenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startIntent = new Intent(getActivity(), chosenClass);
+                startActivity(startIntent);
+            }
+        });
     }
 }
