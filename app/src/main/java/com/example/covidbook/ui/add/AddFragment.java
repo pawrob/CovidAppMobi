@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.NumberPicker;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -26,6 +28,8 @@ public class AddFragment extends Fragment {
     private RatingBar rb;
     private Button submitButton;
     private TextView submitInfo;
+    private RadioGroup radioGroup;
+    protected RadioButton radioButton;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -36,9 +40,12 @@ public class AddFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_add, container, false);
 //        final TextView textView = root.findViewById(R.id.text_add);
         NumberPicker np = root.findViewById(R.id.tempPick);
+        NumberPicker np2 = root.findViewById(R.id.pplPick);
         np.setMinValue(35);
+        np2.setMinValue(0);
         np.setMaxValue(45);
-
+        np2.setMaxValue(100);
+        radioGroup= root.findViewById(R.id.radio);
         rb = root.findViewById(R.id.rateBar);
         submitButton = (Button) root.findViewById(R.id.submitButton);
         submitInfo = root.findViewById(R.id.ratingInfo);
@@ -46,7 +53,9 @@ public class AddFragment extends Fragment {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
-              submitInfo.setText("Rating: " + rb.getRating() + "\nTemp: " + np.getValue()+"C");
+                int radioID = radioGroup.getCheckedRadioButtonId();
+                radioButton=root.findViewById(radioID);
+              submitInfo.setText("Rating: " + rb.getRating() + "\nTemp: " + np.getValue()+"C\nPeople passed today:" + np2.getValue()+"\nchecked go out:"+ radioButton.getText());
             }
         });
 
