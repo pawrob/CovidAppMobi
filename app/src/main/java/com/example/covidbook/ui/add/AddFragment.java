@@ -47,7 +47,7 @@ public class AddFragment extends Fragment {
         radioGroup= root.findViewById(R.id.radio);
         rb = root.findViewById(R.id.rateBar);
         submitButton = (Button) root.findViewById(R.id.submitButton);
-        submitInfo = root.findViewById(R.id.ratingInfo);
+        submitInfo = root.findViewById(R.id.parameters);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
