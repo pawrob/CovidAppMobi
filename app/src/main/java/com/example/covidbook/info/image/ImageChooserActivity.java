@@ -12,12 +12,17 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.covidbook.R;
+import com.example.covidbook.SettingsActivity;
+import com.example.covidbook.ui.home.HomeFragment;
+
+import java.io.File;
 
 public class ImageChooserActivity extends AppCompatActivity {
 
@@ -27,6 +32,19 @@ public class ImageChooserActivity extends AppCompatActivity {
 
     ImageView imageView;
     Button button;
+
+    private void send(ImageView imageView) {
+        if (imageView != null) {
+            Intent intent = new Intent(this, HomeFragment.class);
+//            intent.putExtra();
+            startActivity(intent);
+        } else if (imageView == null) {
+            Toast tst = Toast.makeText(getApplication(),
+                    "Please Click Save First", Toast.LENGTH_SHORT);
+            tst.setGravity(Gravity.CENTER, 0, 0);
+            tst.show();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +91,9 @@ public class ImageChooserActivity extends AppCompatActivity {
                 //setPicturePath(cursor.getString(columnIndex));
                 String picturePath = cursor.getString(columnIndex);
                 cursor.close();
+//                imageView.setImageURI(Uri.fromFile(new File(picturePath)));
                 imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+//                send(imageView);
             }
         }
     }
@@ -85,4 +105,5 @@ public class ImageChooserActivity extends AppCompatActivity {
     public void setPicturePath(String picturePath) {
         ImageChooserActivity.picturePath = picturePath;
     }
+
 }
