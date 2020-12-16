@@ -66,15 +66,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback{
 //            }
 //        });
         mapFragment.getMapAsync(this);
-        final Button mapBtn = findViewById(R.id.button);
-        mapBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String uri = "geo:"+ 19.4667 + "," + 51.7833 +"?q=hospitals+near+me";
 
-                startActivity(new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(uri)));
-            }
-        });
     }
 
     @Override
