@@ -1,5 +1,6 @@
 package com.example.covidbook.ui.home;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -43,11 +44,18 @@ public class HomeFragment extends Fragment {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
+        Bundle args = getArguments();
         final TextView textView = root.findViewById(R.id.text_home);
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+                if (args != null) {
+                    textView.setText(s + args.getString("NameIMP"));
+                }
+                else {
+                    textView.setText(s);
+                }
             }
         });
 
@@ -55,8 +63,7 @@ public class HomeFragment extends Fragment {
         homeViewModel.getImage().observe(getViewLifecycleOwner(), new Observer<Bitmap>() {
             @Override
             public void onChanged(@Nullable Bitmap b) {
-                imageView.setImageBitmap(b);
-//                HomeViewModel.setBmp(BitmapFactory.decodeFile(ImageChooserActivity.getPicturePath()));
+//                imageView.setImageBitmap(b);
             }
         });
 

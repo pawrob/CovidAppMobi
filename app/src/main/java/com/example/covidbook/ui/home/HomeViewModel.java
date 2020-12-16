@@ -3,6 +3,7 @@ package com.example.covidbook.ui.home;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
+import android.os.Bundle;
 import android.widget.ImageView;
 
 import androidx.lifecycle.LiveData;
@@ -21,7 +22,8 @@ public class HomeViewModel extends ViewModel {
     public HomeViewModel() {
         mText = new MutableLiveData<>();
         mImage = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+
+        mText.setValue("Welcome, ");
         mImage.setValue(bmp);
     }
 
