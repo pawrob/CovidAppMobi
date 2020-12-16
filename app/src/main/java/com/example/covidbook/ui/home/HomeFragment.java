@@ -3,6 +3,7 @@ package com.example.covidbook.ui.home;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,8 @@ import com.example.covidbook.MapActivity;
 import com.example.covidbook.R;
 import com.example.covidbook.info.image.ImageChooserActivity;
 import com.example.covidbook.ui.add.AddFragment;
+
+import java.util.Locale;
 
 public class HomeFragment extends Fragment {
 
@@ -64,6 +67,7 @@ public class HomeFragment extends Fragment {
                         .commit();
             }
         });
+
         createButton(R.id.status_update_button, AddFragment.class, root);
         createButton(R.id.local_hospitals_button, MapActivity.class, root);
         createButton(R.id.default_clinic_button, MapActivity.class, root);

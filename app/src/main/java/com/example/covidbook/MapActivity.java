@@ -1,11 +1,18 @@
 package com.example.covidbook;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.SearchView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -19,11 +26,12 @@ import java.io.IOException;
 import java.util.List;
 
 
-public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapActivity extends FragmentActivity implements OnMapReadyCallback{
 
     GoogleMap map;
     SupportMapFragment mapFragment;
     SearchView searchView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,10 +66,21 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 //            }
 //        });
         mapFragment.getMapAsync(this);
+        final Button mapBtn = findViewById(R.id.button);
+        mapBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String uri = "geo:"+ 19.4667 + "," + 51.7833 +"?q=hospitals+near+me";
+
+                startActivity(new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(uri)));
+            }
+        });
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.map = googleMap;
     }
+
+
 }
