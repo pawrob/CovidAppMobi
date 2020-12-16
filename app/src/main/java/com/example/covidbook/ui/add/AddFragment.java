@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -21,6 +22,9 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.covidbook.R;
+import com.example.covidbook.info.PersosInfo;
+
+import java.util.ArrayList;
 
 public class AddFragment extends Fragment {
 
@@ -30,6 +34,7 @@ public class AddFragment extends Fragment {
     private TextView submitInfo;
     private RadioGroup radioGroup;
     protected RadioButton radioButton;
+    private EditText eT;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -46,6 +51,8 @@ public class AddFragment extends Fragment {
         np2.setMaxValue(100);
         radioGroup= root.findViewById(R.id.radio);
         rb = root.findViewById(R.id.rateBar);
+        eT = root.findViewById(R.id.notes);
+
         submitButton = (Button) root.findViewById(R.id.submitButton);
         submitInfo = root.findViewById(R.id.parameters);
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +62,8 @@ public class AddFragment extends Fragment {
                 int radioID = radioGroup.getCheckedRadioButtonId();
                 radioButton=root.findViewById(radioID);
               submitInfo.setText("Rating: " + rb.getRating() + "\nTemp: " + np.getValue()+"C\nPeople passed today:" + np2.getValue()+"\nchecked go out:"+ radioButton.getText());
+                PersosInfo pI = new PersosInfo(np.getValue(),rb.getRating(),np2.getValue(),radioButton.getText().toString(),eT.getText().toString());
+                System.out.println(pI.toString());
             }
         });
 

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.covidbook.MainActivity;
 import com.example.covidbook.MapActivity;
 import com.example.covidbook.R;
+import com.example.covidbook.info.PersonInfoList;
 import com.example.covidbook.info.image.ImageChooserActivity;
 import com.example.covidbook.ui.add.AddFragment;
 
@@ -32,9 +34,11 @@ import java.util.Locale;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
+    PersonInfoList plist = new PersonInfoList();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
@@ -89,6 +93,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent startIntent = new Intent(getActivity(), chosenClass);
+//                startIntent.putExtra("MyClass",  plist);
                 startActivity(startIntent);
             }
         });
