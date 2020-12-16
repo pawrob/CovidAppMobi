@@ -14,9 +14,12 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="RatingBar" parent="Theme.AppCompat">
+    <style name="RatingBar" parent="Theme.CovidBook">
         <item name="colorControlNormal">@color/gray</item>
         <item name="colorControlActivated">@color/purple_500</item>
     </style>
 
+    <style name="PreferenceScreen" parent="Theme.CovidBook">
+        <item name="android:textColor">@color/purple_500</item>
+    </style>
 </resources>

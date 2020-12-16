@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -54,23 +55,24 @@ public class HomeFragment extends Fragment {
         homeViewModel.getImage().observe(getViewLifecycleOwner(), new Observer<Bitmap>() {
             @Override
             public void onChanged(@Nullable Bitmap b) {
-//                imageView.setImageBitmap(b);
+                imageView.setImageBitmap(b);
 //                HomeViewModel.setBmp(BitmapFactory.decodeFile(ImageChooserActivity.getPicturePath()));
             }
         });
 
-        final Button statusbtn = root.findViewById(R.id.status_update_button);
-        statusbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                AddFragment addFrag = new AddFragment();
-                activity.getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.home_frag, addFrag)
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
+//        final Button statusbtn = root.findViewById(R.id.status_update_button);
+//        statusbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                AppCompatActivity activity = (AppCompatActivity) view.getContext();
+//                Fragment addFrag = new AddFragment();
+//                activity.getSupportFragmentManager().beginTransaction()
+//                        .replace(R.id.home_frag, addFrag)
+//                        .addToBackStack(null)
+//                        .commit();
+//            }
+//        });
+
         final Button mapBtn = root.findViewById(R.id.local_hospitals_button);
         mapBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +81,7 @@ public class HomeFragment extends Fragment {
                 startActivity(new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(uri)));
             }
         });
-        createButton(R.id.status_update_button, AddFragment.class, root);
+//        createButton(R.id.status_update_button, AddFragment.class, root);
 //        createButton(R.id.local_hospitals_button, MapActivity.class, root);
         createButton(R.id.default_clinic_button, MapActivity.class, root);
         createButton(R.id.emergency_screen_button, MapActivity.class, root);

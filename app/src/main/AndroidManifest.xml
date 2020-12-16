@@ -23,6 +23,7 @@
         <activity android:name=".info.image.ImageChooserActivity" />
         <activity
             android:name=".SettingsActivity"
+            android:theme="@style/PreferenceScreen"
             android:label="@string/title_activity_settings" />
         <activity
             android:name=".MainActivity"

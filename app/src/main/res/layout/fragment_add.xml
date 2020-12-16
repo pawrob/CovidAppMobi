@@ -121,6 +121,8 @@
                 android:buttonTint="@color/purple_500"
                 android:gravity="center"
                 android:text="@string/yes"
+                android:textColorHighlight="@color/purple_700"
+                android:textColorLink="@color/purple_500"
                 tools:layout_editor_absoluteX="145dp"
                 tools:layout_editor_absoluteY="533dp" />
 
@@ -132,6 +134,8 @@
                 android:checked="true"
                 android:gravity="center"
                 android:text="@string/no"
+                android:textColorHighlight="@color/purple_700"
+                android:textColorLink="@color/purple_500"
                 tools:layout_editor_absoluteX="134dp"
                 tools:layout_editor_absoluteY="528dp" />
 
