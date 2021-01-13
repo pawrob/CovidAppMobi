@@ -92,6 +92,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:text="Emergency screen" />
+            <Button
+                android:id="@+id/statusButton"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:text="Check your last status" />
 
 
         </LinearLayout>

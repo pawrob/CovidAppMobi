@@ -16,6 +16,7 @@ import com.example.covidbook.MainActivity;
 import com.example.covidbook.R;
 import com.example.covidbook.SettingsActivity;
 
+
 public class NameActivity extends AppCompatActivity {
 
     private EditText nameInput;

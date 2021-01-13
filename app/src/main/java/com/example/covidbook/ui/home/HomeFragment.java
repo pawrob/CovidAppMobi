@@ -3,10 +3,8 @@ package com.example.covidbook.ui.home;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,22 +15,22 @@ import android.widget.TextView;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.covidbook.MainActivity;
 import com.example.covidbook.MapActivity;
 import com.example.covidbook.R;
 import com.example.covidbook.info.PersonInfoList;
+
 import com.example.covidbook.info.image.ImageChooserActivity;
 import com.example.covidbook.ui.add.AddFragment;
 import com.example.covidbook.ui.emergency.EmergencyActivity;
 
 import java.util.Locale;
+
+import com.example.covidbook.RecyclerActivity;
+
 
 public class HomeFragment extends Fragment {
 
@@ -89,10 +87,16 @@ public class HomeFragment extends Fragment {
                 startActivity(new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(uri)));
             }
         });
+
+
 //        createButton(R.id.status_update_button, AddFragment.class, root);
 //        createButton(R.id.local_hospitals_button, MapActivity.class, root);
         createButton(R.id.default_clinic_button, MapActivity.class, root);
         createButton(R.id.emergency_screen_button, EmergencyActivity.class, root);
+
+        createButton(R.id.emergency_screen_button, MapActivity.class, root);
+        createButton(R.id.statusButton, RecyclerActivity.class, root);
+
 
         return root;
     }
