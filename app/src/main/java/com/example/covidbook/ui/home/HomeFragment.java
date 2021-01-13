@@ -2,9 +2,12 @@ package com.example.covidbook.ui.home;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.covidbook.App;
 import com.example.covidbook.MapActivity;
 import com.example.covidbook.R;
 import com.example.covidbook.info.PersonInfoList;
@@ -30,6 +34,9 @@ import com.example.covidbook.ui.emergency.EmergencyActivity;
 import java.util.Locale;
 
 import com.example.covidbook.RecyclerActivity;
+import com.google.gson.Gson;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 public class HomeFragment extends Fragment {
@@ -45,12 +52,16 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         Bundle args = getArguments();
         final TextView textView = root.findViewById(R.id.text_home);
+
+        SharedPreferences sharedPreferences = App.context.getSharedPreferences("shared preferences", MODE_PRIVATE);
+        String nameFromSetings = sharedPreferences.getString("inputName", null);
+        textView.setText(nameFromSetings);
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onChanged(@Nullable String s) {
-                if (args != null) {
-                    textView.setText(s + args.getString("NameIMP"));
+                if (nameFromSetings != null) {
+                    textView.setText(s + nameFromSetings);
                 }
                 else {
                     textView.setText(s);
@@ -62,7 +73,15 @@ public class HomeFragment extends Fragment {
         homeViewModel.getImage().observe(getViewLifecycleOwner(), new Observer<Bitmap>() {
             @Override
             public void onChanged(@Nullable Bitmap b) {
-//                imageView.setImageBitmap(b);
+
+                SharedPreferences sharedPreferences = App.context.getSharedPreferences("shared preferences", MODE_PRIVATE);
+                String namePreferance123 = sharedPreferences.getString("namePreferance", null);
+                if(namePreferance123 !=null){
+                    String bitmap = sharedPreferences.getString("imagePreferance", null);
+                    imageView.setImageBitmap(decodeBase64(bitmap));
+                }
+
+
             }
         });
 
@@ -109,5 +128,11 @@ public class HomeFragment extends Fragment {
                 startActivity(startIntent);
             }
         });
+    }
+
+    public static Bitmap decodeBase64(String input) {
+        byte[] decodedByte = Base64.decode(input, 0);
+        return BitmapFactory
+                .decodeByteArray(decodedByte, 0, decodedByte.length);
     }
 }

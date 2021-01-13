@@ -4,15 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-import com.example.covidbook.App;
-import com.example.covidbook.R;
 import com.example.covidbook.info.PersonInfoAdapter;
 import com.example.covidbook.info.PersonInfoList;
-
-import java.util.ArrayList;
 
 public class RecyclerActivity extends AppCompatActivity {
 
@@ -34,6 +32,15 @@ public class RecyclerActivity extends AppCompatActivity {
             mAdapter = new PersonInfoAdapter(personList.getPersonInfoList());
             mRecyclerView.setLayoutManager(mLayoutManager);
             mRecyclerView.setAdapter(mAdapter);
+
+
+        final Button graphBtn = findViewById(R.id.button);
+        graphBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RecyclerActivity.this, GraphActivity.class));
+            }
+        });
         }
 
 }

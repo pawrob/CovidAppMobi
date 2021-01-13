@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,9 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.covidbook.App;
 import com.example.covidbook.MainActivity;
 import com.example.covidbook.R;
 import com.example.covidbook.SettingsActivity;
+import com.google.gson.Gson;
 
 
 public class NameActivity extends AppCompatActivity {
@@ -35,7 +38,12 @@ public class NameActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                SharedPreferences sharedPreferences = App.context.getSharedPreferences("shared preferences", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("inputName", nameInput.getText().toString());
+                editor.apply();
+            }
 
             @Override
             public void afterTextChanged(Editable editable) {

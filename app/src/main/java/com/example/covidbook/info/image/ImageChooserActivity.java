@@ -5,23 +5,31 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.covidbook.App;
 import com.example.covidbook.R;
 import com.example.covidbook.SettingsActivity;
 import com.example.covidbook.ui.home.HomeFragment;
+import com.google.gson.Gson;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 
 public class ImageChooserActivity extends AppCompatActivity {
@@ -88,12 +96,15 @@ public class ImageChooserActivity extends AppCompatActivity {
                 Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
                 cursor.moveToFirst();
                 int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                //setPicturePath(cursor.getString(columnIndex));
                 String picturePath = cursor.getString(columnIndex);
                 cursor.close();
-//                imageView.setImageURI(Uri.fromFile(new File(picturePath)));
-                imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
-//                send(imageView);
+                SharedPreferences sharedPreferences = App.context.getSharedPreferences("shared preferences", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                String itemNAme = "tak";
+                editor.putString("namePreferance", itemNAme);
+                editor.putString("imagePreferance", encodeTobase64(BitmapFactory.decodeFile(picturePath)));
+                editor.apply();
+
             }
         }
     }
@@ -106,4 +117,16 @@ public class ImageChooserActivity extends AppCompatActivity {
         ImageChooserActivity.picturePath = picturePath;
     }
 
+
+
+    public static String encodeTobase64(Bitmap image) {
+        Bitmap immage = image;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        immage.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        byte[] b = baos.toByteArray();
+        String imageEncoded = Base64.encodeToString(b, Base64.DEFAULT);
+
+        Log.d("Image Log:", imageEncoded);
+        return imageEncoded;
+    }
 }

@@ -45,16 +45,7 @@ public class PersonInfoList implements Serializable {
                 "count= "+ personInfoList.size() + '}';
     }
 
-    public static String toJson(List<PersonInfo> list) throws IOException {
-        Gson gson = new GsonBuilder().create();
-        String json = gson.toJson(list);
-        System.out.println("json " + json);
-        try (Writer writer = new FileWriter("Output.json")) {
-            gson.toJson(list, writer);
-        }
-        return json;
 
-    }
 
     public static void saveData(Context context, List<PersonInfo> list) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("shared preferences", MODE_PRIVATE);
