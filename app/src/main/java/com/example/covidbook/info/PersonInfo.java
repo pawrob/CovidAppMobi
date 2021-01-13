@@ -1,25 +1,32 @@
 package com.example.covidbook.info;
 
-public class PersosInfo {
-    private int temperature;
+import com.google.gson.annotations.SerializedName;
+
+public class PersonInfo {
+    @SerializedName("temperature")
+    private float temperature;
+    @SerializedName("rating")
     private float rating;
-    private int peaoplePassed;
+    @SerializedName("peoplePassed")
+    private int peoplePassed;
+    @SerializedName("goOut")
     private String goOut;
+    @SerializedName("notes")
     private String notes;
 
-    public PersosInfo(int temperature, float rating, int peaoplePassed, String goOut, String notes) {
+    public PersonInfo(float temperature, float rating, int peoplePassed, String goOut, String notes) {
         this.temperature = temperature;
         this.rating = rating;
-        this.peaoplePassed = peaoplePassed;
+        this.peoplePassed = peoplePassed;
         this.goOut = goOut;
         this.notes = notes;
     }
 
-    public int getTemperature() {
+    public float getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(int temperature) {
+    public void setTemperature(float temperature) {
         this.temperature = temperature;
     }
 
@@ -31,12 +38,12 @@ public class PersosInfo {
         this.rating = rating;
     }
 
-    public int getPeaoplePassed() {
-        return peaoplePassed;
+    public int getPeoplePassed() {
+        return peoplePassed;
     }
 
-    public void setPeaoplePassed(int peaoplePassed) {
-        this.peaoplePassed = peaoplePassed;
+    public void setPeoplePassed(int peoplePassed) {
+        this.peoplePassed = peoplePassed;
     }
 
     public String getGoOut() {
@@ -60,7 +67,7 @@ public class PersosInfo {
         return "PersosInfo{" +
                 "temperature=" + temperature +
                 ", rating=" + rating +
-                ", peaoplePassed=" + peaoplePassed +
+                ", peaoplePassed=" + peoplePassed +
                 ", goOut='" + goOut + '\'' +
                 ", notes='" + notes + '\'' +
                 '}';
