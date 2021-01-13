@@ -30,6 +30,7 @@ import com.example.covidbook.R;
 import com.example.covidbook.info.PersonInfoList;
 import com.example.covidbook.info.image.ImageChooserActivity;
 import com.example.covidbook.ui.add.AddFragment;
+import com.example.covidbook.ui.emergency.EmergencyActivity;
 
 import java.util.Locale;
 
@@ -91,7 +92,7 @@ public class HomeFragment extends Fragment {
 //        createButton(R.id.status_update_button, AddFragment.class, root);
 //        createButton(R.id.local_hospitals_button, MapActivity.class, root);
         createButton(R.id.default_clinic_button, MapActivity.class, root);
-        createButton(R.id.emergency_screen_button, MapActivity.class, root);
+        createButton(R.id.emergency_screen_button, EmergencyActivity.class, root);
 
         return root;
     }
@@ -102,7 +103,6 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent startIntent = new Intent(getActivity(), chosenClass);
-//                startIntent.putExtra("MyClass",  plist);
                 startActivity(startIntent);
             }
         });

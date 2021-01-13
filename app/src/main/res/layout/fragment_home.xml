@@ -93,6 +93,7 @@
                 android:layout_height="75dp"
                 android:text="Emergency screen" />
 
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

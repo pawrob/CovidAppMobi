@@ -15,7 +15,6 @@ import android.widget.TextView;
 import com.example.covidbook.MainActivity;
 import com.example.covidbook.R;
 import com.example.covidbook.SettingsActivity;
-import com.example.covidbook.info.PersosInfo;
 
 public class NameActivity extends AppCompatActivity {
 

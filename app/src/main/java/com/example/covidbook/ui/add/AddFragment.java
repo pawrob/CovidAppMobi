@@ -1,7 +1,9 @@
 package com.example.covidbook.ui.add;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +25,7 @@ import com.example.covidbook.R;
 import com.example.covidbook.info.PersonInfo;
 import com.example.covidbook.info.PersonInfoList;
 
-import java.io.IOException;
+import java.util.ArrayList;
 
 public class AddFragment extends Fragment {
 
