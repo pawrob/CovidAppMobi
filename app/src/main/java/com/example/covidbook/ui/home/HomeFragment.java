@@ -94,7 +94,6 @@ public class HomeFragment extends Fragment {
         createButton(R.id.default_clinic_button, MapActivity.class, root);
         createButton(R.id.emergency_screen_button, EmergencyActivity.class, root);
 
-        createButton(R.id.emergency_screen_button, MapActivity.class, root);
         createButton(R.id.statusButton, RecyclerActivity.class, root);
 
 
