@@ -17,4 +17,8 @@
     <style name="PreferenceScreen" parent="Theme.CovidBook">
         <item name="android:textColor">?colorPrimary</item>
     </style>
+
+    <style name="Radio" parent="Theme.CovidBook">
+        <item name="buttonTint">?colorPrimary</item>
+    </style>
 </resources>

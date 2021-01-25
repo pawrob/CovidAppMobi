@@ -113,7 +113,7 @@
             app:layout_constraintTop_toBottomOf="@+id/pplPick" />
 
         <RadioGroup
-
+            android:theme="@style/Radio"
             android:id="@+id/radio"
             android:layout_width="186dp"
             android:layout_height="65dp"
@@ -131,11 +131,8 @@
                 android:id="@+id/yesRadio"
                 android:layout_width="85dp"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/purple_500"
                 android:gravity="center"
                 android:text="@string/yes"
-                android:textColorHighlight="@color/purple_700"
-                android:textColorLink="@color/purple_500"
                 tools:layout_editor_absoluteX="145dp"
                 tools:layout_editor_absoluteY="533dp" />
 
@@ -201,9 +198,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="25dp"
             android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
             android:text="@string/submit"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/notes2" />
