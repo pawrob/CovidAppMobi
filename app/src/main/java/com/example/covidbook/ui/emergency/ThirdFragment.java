@@ -1,6 +1,8 @@
 package com.example.covidbook.ui.emergency;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +20,9 @@ import com.example.covidbook.info.PersonInfoList;
 public class ThirdFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-
+    private Button callButton1;
+    private Button callButton2;
+    private Button callButton3;
     public static ThirdFragment newInstance(int index) {
         ThirdFragment fragment = new ThirdFragment();
         Bundle bundle = new Bundle();
@@ -31,25 +35,42 @@ public class ThirdFragment extends Fragment {
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_third, container, false);
 
-//        submitButton = (Button) root.findViewById(R.id.submitButton);
-//        submitButton.setOnClickListener(new View.OnClickListener() {
-//            @SuppressLint("SetTextI18n")
-//            @Override
-//            public void onClick(View view) {
-//                int radioID = radioGroup.getCheckedRadioButtonId();
-//                radioButton=root.findViewById(radioID);
-//                float totalTemp = (float) (np.getValue()+ np3.getValue()/10.0);
-//
-//
-//                PersonInfo pI = new PersonInfo(totalTemp,rb.getRating(),np2.getValue(),radioButton.getText().toString(),eT.getText().toString());
-//                personList.add(pI);
-//                System.out.println(personList.toString());
-//
-//                PersonInfoList.saveData(getContext(),personList.getPersonInfoList());
-//            }
-//        });
+        View root = inflater.inflate(R.layout.fragment_third, container, false);
+
+        callButton1 = (Button) root.findViewById(R.id.button2);
+        callButton1.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:800190590"));
+                startActivity(intent);
+            }
+        });
+        callButton2 = (Button) root.findViewById(R.id.button3);
+        callButton2.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:989"));
+                startActivity(intent);
+            }
+        });
+
+        callButton2 = (Button) root.findViewById(R.id.button4);
+        callButton2.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:KancelariaElektroniczna@nfz.gov.pl?subject=Question about covid-19")); // only email apps should handle this
+                startActivity(intent);
+            }
+        });
+        return root;
     }
 
 }
