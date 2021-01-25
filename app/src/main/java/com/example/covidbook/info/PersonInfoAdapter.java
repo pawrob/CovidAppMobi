@@ -22,10 +22,12 @@ public class PersonInfoAdapter extends RecyclerView.Adapter<PersonInfoAdapter.Ex
         public ImageView mImageView;
         public TextView mTextView1;
         public TextView mTextView2;
+        public TextView mTextView3;
         public ExampleViewHolder(View itemView) {
             super(itemView);
             mTextView1 = itemView.findViewById(R.id.textView);
             mTextView2 = itemView.findViewById(R.id.textView2);
+            mTextView3 = itemView.findViewById(R.id.textView3);
         }
     }
     public PersonInfoAdapter(List<PersonInfo> personInfoArrayList) {
@@ -50,6 +52,7 @@ public class PersonInfoAdapter extends RecyclerView.Adapter<PersonInfoAdapter.Ex
 
         holder.mTextView1.setText("Rating: "+ currentItem.getRating());
         holder.mTextView2.setText("Temperature: "+ currentItem.getTemperature());
+        holder.mTextView3.setText(currentItem.getNotes());
     }
     @Override
     public int getItemCount() {

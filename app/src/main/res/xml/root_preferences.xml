@@ -13,15 +13,15 @@
                 />
         </Preference>
 
-        <Preference
-            app:title="Change name">
+<!--        <Preference-->
+<!--            app:title="Change name">-->
 
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetPackage="com.example.covidbook"
-                android:targetClass="com.example.covidbook.info.name.NameActivity"
-                />
-        </Preference>
+<!--            <intent-->
+<!--                android:action="android.intent.action.VIEW"-->
+<!--                android:targetPackage="com.example.covidbook"-->
+<!--                android:targetClass="com.example.covidbook.info.name.NameActivity"-->
+<!--                />-->
+<!--        </Preference>-->
 
         <EditTextPreference
             app:key="name"

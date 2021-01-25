@@ -21,6 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.preference.PreferenceManager;
 
 import com.example.covidbook.App;
 import com.example.covidbook.MapActivity;
@@ -53,8 +54,8 @@ public class HomeFragment extends Fragment {
         final TextView textView = root.findViewById(R.id.text_home);
 
 
-        SharedPreferences sharedPreferences = App.context.getSharedPreferences("shared preferences", MODE_PRIVATE);
-        String nameFromSetings = sharedPreferences.getString("setName1", null);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(App.context);
+        String nameFromSetings = sharedPreferences.getString("name", null);
         textView.setText(nameFromSetings);
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @SuppressLint("SetTextI18n")

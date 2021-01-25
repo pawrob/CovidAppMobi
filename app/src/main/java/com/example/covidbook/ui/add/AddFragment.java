@@ -32,7 +32,6 @@ public class AddFragment extends Fragment {
     private AddViewModel addViewModel;
     private RatingBar rb;
     private Button submitButton;
-    private TextView submitInfo;
     private RadioGroup radioGroup;
     protected RadioButton radioButton;
     private EditText eT;
@@ -46,7 +45,7 @@ public class AddFragment extends Fragment {
         addViewModel =
                 new ViewModelProvider(this).get(AddViewModel.class);
         View root = inflater.inflate(R.layout.fragment_add, container, false);
-//        final TextView textView = root.findViewById(R.id.text_add);
+
 
         personList.setPersonInfoList(PersonInfoList.loadData(getContext(),personList.getPersonInfoList()));
         NumberPicker np = root.findViewById(R.id.tempPick);
@@ -64,7 +63,6 @@ public class AddFragment extends Fragment {
 
 
         submitButton = (Button) root.findViewById(R.id.submitButton);
-        submitInfo = root.findViewById(R.id.parameters);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
@@ -72,7 +70,7 @@ public class AddFragment extends Fragment {
                 int radioID = radioGroup.getCheckedRadioButtonId();
                 radioButton=root.findViewById(radioID);
                 float totalTemp = (float) (np.getValue()+ np3.getValue()/10.0);
-                submitInfo.setText("Rating: " + rb.getRating() + "\nTemp: " + totalTemp+"C\nPeople passed today:" + np2.getValue()+"\nchecked go out:"+ radioButton.getText());
+
 
                 PersonInfo pI = new PersonInfo(totalTemp,rb.getRating(),np2.getValue(),radioButton.getText().toString(),eT.getText().toString());
                 personList.add(pI);
