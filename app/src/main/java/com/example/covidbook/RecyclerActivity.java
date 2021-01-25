@@ -9,8 +9,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.covidbook.info.PersonInfoAdapter;
+import com.example.covidbook.info.RecycleCardItem;
 import com.example.covidbook.info.PersonInfoList;
+
+import java.util.Collections;
 
 public class RecyclerActivity extends AppCompatActivity {
 
@@ -29,7 +31,9 @@ public class RecyclerActivity extends AppCompatActivity {
             mRecyclerView = findViewById(R.id.recyclerView);
             mRecyclerView.setHasFixedSize(true);
             mLayoutManager = new LinearLayoutManager(this);
-            mAdapter = new PersonInfoAdapter(personList.getPersonInfoList());
+
+            Collections.reverse(personList.getPersonInfoList());
+            mAdapter = new RecycleCardItem(personList.getPersonInfoList());
             mRecyclerView.setLayoutManager(mLayoutManager);
             mRecyclerView.setAdapter(mAdapter);
 

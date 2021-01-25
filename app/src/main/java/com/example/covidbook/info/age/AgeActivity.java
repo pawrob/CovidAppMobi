@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-
 import com.example.covidbook.App;
 import com.example.covidbook.R;
 

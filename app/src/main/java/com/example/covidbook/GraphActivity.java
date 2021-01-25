@@ -1,9 +1,14 @@
 package com.example.covidbook;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.renderscript.Sampler;
+import android.widget.Toast;
 
 import com.example.covidbook.info.PersonInfoList;
 import com.jjoe64.graphview.GraphView;
@@ -24,8 +29,11 @@ public class GraphActivity extends AppCompatActivity {
         setContentView(R.layout.activity_grpah);
 
         personList.setPersonInfoList(PersonInfoList.loadData(App.context,personList.getPersonInfoList()));
-
-        GraphView graph = (GraphView) findViewById(R.id.graph);
+        if(personList.getPersonInfoList().size()<7){
+            Toast.makeText(App.context,"You need to have at least 7 notes to display graphs!",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            GraphView graph = (GraphView) findViewById(R.id.graph);
         BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
                 new DataPoint(1,personList.getPersonInfoList().get(personList.getPersonInfoList().size()-1).getTemperature()),
                 new DataPoint(2,personList.getPersonInfoList().get(personList.getPersonInfoList().size()-2).getTemperature()),
@@ -61,10 +69,13 @@ public class GraphActivity extends AppCompatActivity {
         plot(graph,series,"Temperature over last week");
         plot(graph2,series2,"Rating over last week");
         plot(graph3,series3,"People passed last week");
+        }
+
     }
 
 
-    public void plot(GraphView graphView,BarGraphSeries<DataPoint> series,String title){
+    @SuppressLint("ResourceType")
+    public void plot(GraphView graphView, BarGraphSeries<DataPoint> series, String title){
 
         graphView.addSeries(series);
         series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
@@ -76,7 +87,7 @@ public class GraphActivity extends AppCompatActivity {
         graphView.setTitle(title);
         series.setSpacing(50);
         series.setDrawValuesOnTop(true);
-        series.setValuesOnTopColor(Color.BLACK);
+//        series.setValuesOnTopColor(R.color.white);
     }
 
 }

@@ -26,21 +26,8 @@ public class ThirdFragment extends Fragment {
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState
-    ) {
-        // Inflate the layout for this fragment
+            Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_third, container, false);
     }
 
-//    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//
-//        view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                NavHostFragment.findNavController(ThirdFragment.this)
-//                        .navigate(R.id.action_ThirdFragment_to_SecondFragment);
-//            }
-//        });
-//    }
 }

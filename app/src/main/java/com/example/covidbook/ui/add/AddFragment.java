@@ -57,6 +57,8 @@ public class AddFragment extends Fragment {
         np.setMaxValue(45);
         np2.setMaxValue(100);
         np3.setMaxValue(9);
+        np.setValue(36);
+        np3.setValue(6);
         radioGroup= root.findViewById(R.id.radio);
         rb = root.findViewById(R.id.rateBar);
         eT = root.findViewById(R.id.notes);

@@ -17,42 +17,27 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
-
 import com.example.covidbook.App;
 import com.example.covidbook.GpsTracker;
 import com.example.covidbook.MapActivity;
 import com.example.covidbook.R;
 import com.example.covidbook.info.PersonInfoList;
-
-import com.example.covidbook.info.image.ImageChooserActivity;
-import com.example.covidbook.ui.add.AddFragment;
 import com.example.covidbook.ui.emergency.EmergencyActivity;
-
-import java.text.BreakIterator;
-import java.text.StringCharacterIterator;
-import java.util.Locale;
-
 import com.example.covidbook.RecyclerActivity;
-
 import static android.content.Context.MODE_PRIVATE;
 
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    PersonInfoList plist = new PersonInfoList();
-//    double latitude = 19.4667;
-//    double longitude = 51.7833;
-double latitude = 0;
+    double latitude = 0;
     double longitude = 0;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -97,18 +82,6 @@ double latitude = 0;
             }
         });
 
-//        final Button statusbtn = root.findViewById(R.id.status_update_button);
-//        statusbtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                AppCompatActivity activity = (AppCompatActivity) view.getContext();
-//                Fragment addFrag = new AddFragment();
-//                activity.getSupportFragmentManager().beginTransaction()
-//                        .replace(R.id.home_frag, addFrag)
-//                        .addToBackStack(null)
-//                        .commit();
-//            }
-//        });
         requestPermissions( new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, 123);
         GpsTracker gt = new GpsTracker(App.context);
         Location location = gt.getLocation();
@@ -130,12 +103,8 @@ double latitude = 0;
             }
         });
 
-
-//        createButton(R.id.status_update_button, AddFragment.class, root);
-//        createButton(R.id.local_hospitals_button, MapActivity.class, root);
         createButton(R.id.default_clinic_button, MapActivity.class, root);
         createButton(R.id.emergency_screen_button, EmergencyActivity.class, root);
-
         createButton(R.id.statusButton, RecyclerActivity.class, root);
 
 

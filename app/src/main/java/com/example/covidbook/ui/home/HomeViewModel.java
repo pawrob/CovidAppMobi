@@ -27,10 +27,6 @@ public class HomeViewModel extends ViewModel {
         mImage.setValue(bmp);
     }
 
-    public void setmImage(MutableLiveData<Bitmap> mImage) {
-        this.mImage = mImage;
-    }
-
     public LiveData<String> getText() {
         return mText;
     }
