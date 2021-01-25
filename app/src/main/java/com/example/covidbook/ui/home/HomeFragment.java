@@ -1,10 +1,12 @@
 package com.example.covidbook.ui.home;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
@@ -14,16 +16,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
 
 import com.example.covidbook.App;
+import com.example.covidbook.GpsTracker;
 import com.example.covidbook.MapActivity;
 import com.example.covidbook.R;
 import com.example.covidbook.info.PersonInfoList;
@@ -32,6 +37,8 @@ import com.example.covidbook.info.image.ImageChooserActivity;
 import com.example.covidbook.ui.add.AddFragment;
 import com.example.covidbook.ui.emergency.EmergencyActivity;
 
+import java.text.BreakIterator;
+import java.text.StringCharacterIterator;
 import java.util.Locale;
 
 import com.example.covidbook.RecyclerActivity;
@@ -43,6 +50,10 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     PersonInfoList plist = new PersonInfoList();
+//    double latitude = 19.4667;
+//    double longitude = 51.7833;
+double latitude = 0;
+    double longitude = 0;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -98,12 +109,23 @@ public class HomeFragment extends Fragment {
 //                        .commit();
 //            }
 //        });
+        requestPermissions( new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, 123);
+        GpsTracker gt = new GpsTracker(App.context);
+        Location location = gt.getLocation();
 
+        if( location == null){
+            Toast.makeText(App.context,"GPS not available ",Toast.LENGTH_SHORT).show();
+        }else {
+
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
+
+        }
         final Button mapBtn = root.findViewById(R.id.local_hospitals_button);
         mapBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String uri = "geo:"+ 19.4667 + "," + 51.7833 +"?q=hospitals+near+me";
+                String uri = "geo:"+ latitude + "," + longitude +"?q=hospitals+near+me";
                 startActivity(new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(uri)));
             }
         });

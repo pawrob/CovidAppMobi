@@ -196,30 +196,17 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-
-        <TextView
-            android:id="@+id/parameters"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="25dp"
-            android:text="@string/your_parameters"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/notes2" />
-
         <Button
             android:id="@+id/submitButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="25dp"
             android:text="@string/submit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/parameters" />
+            app:layout_constraintTop_toBottomOf="@+id/notes2" />
 
         <TextView
             android:id="@+id/textView"
