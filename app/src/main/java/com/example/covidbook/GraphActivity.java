@@ -81,13 +81,15 @@ public class GraphActivity extends AppCompatActivity {
         series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
             @Override
             public int get(DataPoint data) {
-                return Color.rgb((int) data.getX()*255/4, (int) Math.abs(data.getY()*255/6), 100);
+                return Color.rgb(204,155,255);
+
             }
         });
         graphView.setTitle(title);
         series.setSpacing(50);
         series.setDrawValuesOnTop(true);
-//        series.setValuesOnTopColor(R.color.white);
+        series.setColor(R.color.white);
+        series.setValuesOnTopSize(40);
     }
 
 }

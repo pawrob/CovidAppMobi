@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="50dp"
@@ -7,16 +9,15 @@
     android:orientation="vertical"
     android:id="@+id/home_frag">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".ui.home.HomeFragment">
 
         <TextView
             android:id="@+id/text_home"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="271dp"
+            android:layout_height="26dp"
             android:layout_marginStart="100dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="100dp"
@@ -76,27 +77,28 @@
 <!--                android:text="Update your health status" />-->
 
             <Button
+                android:id="@+id/statusButton"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:text="Check your last status" />
+
+            <Button
                 android:id="@+id/local_hospitals_button"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:text="Check local hospitals" />
 
             <Button
+                android:id="@+id/emergency_screen_button"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:text="Learn more about COVID-19" />
+
+            <Button
                 android:id="@+id/default_clinic_button"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:text="View your default clinic" />
-
-            <Button
-                android:id="@+id/emergency_screen_button"
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:text="Emergency screen" />
-            <Button
-                android:id="@+id/statusButton"
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:text="Check your last status" />
 
 
         </LinearLayout>
