@@ -20,7 +20,7 @@
     </style>
 
     <style name="PreferenceScreen" parent="Theme.CovidBook">
-        <item name="android:textColor">@color/purple_500</item>
+        <item name="android:textColor">?colorPrimary</item>
     </style>
 
     <style name="Theme.CovidBook.NoActionBar">

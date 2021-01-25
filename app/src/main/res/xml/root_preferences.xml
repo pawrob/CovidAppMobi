@@ -1,49 +1,48 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory app:title="User customization">
+    <PreferenceCategory
+        app:title="User customization">
 
-        <Preference
-            app:title="@string/change_photo">
+        <Preference app:title="@string/change_photo">
 
             <intent
                 android:action="android.intent.action.VIEW"
-                android:targetPackage="com.example.covidbook"
                 android:targetClass="com.example.covidbook.info.image.ImageChooserActivity"
-                />
+                android:targetPackage="com.example.covidbook" />
         </Preference>
 
-<!--        <Preference-->
-<!--            app:title="Change name">-->
+        <!--        <Preference-->
+        <!--            app:title="Change name">-->
 
-<!--            <intent-->
-<!--                android:action="android.intent.action.VIEW"-->
-<!--                android:targetPackage="com.example.covidbook"-->
-<!--                android:targetClass="com.example.covidbook.info.name.NameActivity"-->
-<!--                />-->
-<!--        </Preference>-->
+        <!--            <intent-->
+        <!--                android:action="android.intent.action.VIEW"-->
+        <!--                android:targetPackage="com.example.covidbook"-->
+        <!--                android:targetClass="com.example.covidbook.info.name.NameActivity"-->
+        <!--                />-->
+        <!--        </Preference>-->
 
         <EditTextPreference
-            app:key="name"
-            app:title="Change Your name"
             app:dialogTitle="Enter Name"
+            app:key="name"
             app:summary="Enter Your name"
+            app:title="Change Your name"
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
-            app:key="age"
-            app:title="Change age"
             app:dialogTitle="Enter Age"
+            app:key="age"
             app:summary="Enter Your Age"
+            app:title="Change age"
             app:useSimpleSummaryProvider="true" />
 
-<!--        <ListPreference-->
-<!--            app:defaultValue="reply"-->
-<!--            app:entries="@array/reply_entries"-->
-<!--            app:entryValues="@array/reply_values"-->
-<!--            app:key="reply"-->
-<!--            app:title="@string/reply_title"-->
-<!--            app:useSimpleSummaryProvider="true" />-->
+        <!--        <ListPreference-->
+        <!--            app:defaultValue="reply"-->
+        <!--            app:entries="@array/reply_entries"-->
+        <!--            app:entryValues="@array/reply_values"-->
+        <!--            app:key="reply"-->
+        <!--            app:title="@string/reply_title"-->
+        <!--            app:useSimpleSummaryProvider="true" />-->
 
     </PreferenceCategory>
 
