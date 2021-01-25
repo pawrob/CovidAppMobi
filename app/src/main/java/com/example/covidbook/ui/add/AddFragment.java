@@ -1,12 +1,14 @@
 package com.example.covidbook.ui.add;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.NumberPicker;
@@ -21,6 +23,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.covidbook.App;
 import com.example.covidbook.R;
 import com.example.covidbook.info.PersonInfo;
 import com.example.covidbook.info.PersonInfoList;
@@ -79,6 +82,8 @@ public class AddFragment extends Fragment {
                 System.out.println(personList.toString());
 
                 PersonInfoList.saveData(getContext(),personList.getPersonInfoList());
+                Intent startIntent = new Intent(getActivity(), com.example.covidbook.MainActivity.class);
+                startActivity(startIntent);
             }
         });
 
@@ -90,4 +95,5 @@ public class AddFragment extends Fragment {
         });
         return root;
     }
+
 }

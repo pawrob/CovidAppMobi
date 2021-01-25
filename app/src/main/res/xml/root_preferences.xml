@@ -51,11 +51,11 @@
         <Preference
             app:title="Authors">
 
-<!--            <intent-->
-<!--                android:action="android.intent.action.VIEW"-->
-<!--                android:targetPackage="com.example.covidbook"-->
-<!--                android:targetClass="com.example.covidbook.info.image.ImageChooserActivity"-->
-<!--                />-->
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetPackage="com.example.covidbook"
+                android:targetClass="com.example.covidbook.ui.authors.AboutAuthorsActivity"
+                />
         </Preference>
 
 <!--        <SwitchPreferenceCompat-->

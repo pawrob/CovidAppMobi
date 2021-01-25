@@ -42,14 +42,8 @@ public class ImageChooserActivity extends AppCompatActivity {
         }
 
         imageView = (ImageView) findViewById(R.id.profile_img);
-        button = (Button) findViewById(R.id.image_button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(i, RESULT_LOAD_IMAGE);
-            }
-        });
+        Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(i, RESULT_LOAD_IMAGE);
     }
 
     @Override
@@ -82,6 +76,8 @@ public class ImageChooserActivity extends AppCompatActivity {
                 editor.putString("namePreferance", itemNAme);
                 editor.putString("imagePreferance", encodeTobase64(BitmapFactory.decodeFile(picturePath)));
                 editor.apply();
+                Intent startIntent = new Intent(ImageChooserActivity.this, com.example.covidbook.MainActivity.class);
+                startActivity(startIntent);
 
             }
         }
