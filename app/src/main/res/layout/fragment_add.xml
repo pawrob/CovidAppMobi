@@ -140,12 +140,9 @@
                 android:id="@+id/noRadio"
                 android:layout_width="64dp"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/purple_500"
                 android:checked="true"
                 android:gravity="center"
                 android:text="@string/no"
-                android:textColorHighlight="@color/purple_700"
-                android:textColorLink="@color/purple_500"
                 tools:layout_editor_absoluteX="134dp"
                 tools:layout_editor_absoluteY="528dp" />
 
@@ -200,7 +197,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="25dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="50dp"
             android:text="@string/submit"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -212,7 +209,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="95dp"
-            android:text="."
+            android:text="@string/dot"
             app:layout_constraintEnd_toStartOf="@+id/tempPick2"
             app:layout_constraintStart_toEndOf="@+id/tempPick"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -223,7 +220,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="84dp"
-            android:text="C"
+            android:text="@string/temperature"
             app:layout_constraintStart_toEndOf="@+id/tempPick2"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
     </androidx.constraintlayout.widget.ConstraintLayout>

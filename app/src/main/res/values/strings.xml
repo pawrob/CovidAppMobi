@@ -153,4 +153,7 @@
     <string name="info_button_4">Situation reports</string>
     <string name="info_button_5">All information on the COVID-19 outbreak</string>
     <string name="stay_informed">Stay informed</string>
+    <string name="check_your_statistics">Check your statistics</string>
+    <string name="dot">.</string>
+    <string name="temperature">C</string>
 </resources>
