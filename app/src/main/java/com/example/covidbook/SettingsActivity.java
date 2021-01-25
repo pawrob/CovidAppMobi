@@ -1,10 +1,14 @@
 package com.example.covidbook;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
+
+import com.example.covidbook.info.age.AgeActivity;
+import com.example.covidbook.info.name.NameActivity;
 
 public class SettingsActivity extends AppCompatActivity {
 

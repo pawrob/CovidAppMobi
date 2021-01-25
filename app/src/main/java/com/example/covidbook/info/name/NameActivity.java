@@ -17,7 +17,6 @@ import com.example.covidbook.App;
 import com.example.covidbook.MainActivity;
 import com.example.covidbook.R;
 import com.example.covidbook.SettingsActivity;
-import com.google.gson.Gson;
 
 
 public class NameActivity extends AppCompatActivity {

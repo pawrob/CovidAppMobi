@@ -24,8 +24,17 @@
         </Preference>
 
         <EditTextPreference
+            app:key="name"
+            app:title="Change Your name"
+            app:dialogTitle="Enter Name"
+            app:summary="Enter Your name"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
             app:key="age"
             app:title="Change age"
+            app:dialogTitle="Enter Age"
+            app:summary="Enter Your Age"
             app:useSimpleSummaryProvider="true" />
 
 <!--        <ListPreference-->

@@ -34,7 +34,6 @@ import com.example.covidbook.ui.emergency.EmergencyActivity;
 import java.util.Locale;
 
 import com.example.covidbook.RecyclerActivity;
-import com.google.gson.Gson;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -53,8 +52,9 @@ public class HomeFragment extends Fragment {
         Bundle args = getArguments();
         final TextView textView = root.findViewById(R.id.text_home);
 
+
         SharedPreferences sharedPreferences = App.context.getSharedPreferences("shared preferences", MODE_PRIVATE);
-        String nameFromSetings = sharedPreferences.getString("inputName", null);
+        String nameFromSetings = sharedPreferences.getString("setName1", null);
         textView.setText(nameFromSetings);
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @SuppressLint("SetTextI18n")
