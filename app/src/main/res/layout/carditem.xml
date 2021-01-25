@@ -9,7 +9,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="121dp"
-        android:layout_margin="4dp">
+        android:layout_margin="4dp"
+        android:background="?colorOnPrimary">
 
         <ImageView
             android:id="@+id/imageView"
@@ -26,7 +27,7 @@
             android:layout_marginTop="6dp"
             android:layout_toEndOf="@+id/imageView"
             android:text="Line 1"
-            android:textColor="@android:color/black"
+            android:textColor="?colorPrimary"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -39,6 +40,7 @@
             android:layout_marginTop="4dp"
             android:layout_toEndOf="@+id/imageView"
             android:text="Line 2"
+            android:textColor="?colorSecondary"
             android:textSize="15sp" />
 
         <TextView
