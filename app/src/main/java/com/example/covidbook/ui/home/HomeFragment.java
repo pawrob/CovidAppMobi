@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Build;
@@ -44,7 +45,11 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     double latitude = 0;
     double longitude = 0;
+    public PersonInfoList personList = new PersonInfoList();
+    String msg;
+    int color;
 
+    @SuppressLint("ResourceAsColor")
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -53,7 +58,33 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         Bundle args = getArguments();
         final TextView textView = root.findViewById(R.id.text_home);
+        final TextView textView2 = root.findViewById(R.id.text_status);
 
+        personList.setPersonInfoList(PersonInfoList.loadData(App.context,personList.getPersonInfoList()));
+
+        double health_status = (personList.getPersonInfoList().get(personList.getPersonInfoList().size()-1).getTemperature()+
+                +personList.getPersonInfoList().get(personList.getPersonInfoList().size()-2).getTemperature()+
+                personList.getPersonInfoList().get(personList.getPersonInfoList().size()-3).getTemperature())/3;
+        if(health_status>38){
+            msg = "You have feather! Go to the doctor!";
+
+            color = Color.rgb(220,20,60);
+        }
+        else if (health_status<35){
+            msg = "You have hypothermia! Go to the doctor!";
+            color = Color.rgb(135,206,250);
+
+        }
+        else {
+            msg = "You are in a good shape!";
+            color = Color.rgb(50,205,50);
+
+        }
+
+
+//        textView2.setText(String.valueOf(health_status));
+        textView2.setText(String.valueOf(msg));
+        textView2.setTextColor(color);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(App.context);
         String nameFromSetings = sharedPreferences.getString("name", null);

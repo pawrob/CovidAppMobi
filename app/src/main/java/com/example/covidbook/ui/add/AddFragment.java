@@ -54,7 +54,7 @@ public class AddFragment extends Fragment {
         NumberPicker np = root.findViewById(R.id.tempPick);
         NumberPicker np3 = root.findViewById(R.id.tempPick2);
         NumberPicker np2 = root.findViewById(R.id.pplPick);
-        np.setMinValue(35);
+        np.setMinValue(34);
         np2.setMinValue(0);
         np3.setMinValue(0);
         np.setMaxValue(45);
