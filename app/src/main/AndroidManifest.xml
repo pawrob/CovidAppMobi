@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <queries>
         <intent>
@@ -27,24 +28,40 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidBook">
-        <activity android:name=".ui.authors.AboutAuthorsActivity"></activity>
-        <activity android:name=".GraphActivity" />
-        <activity
-            android:name=".ui.emergency.EmergencyActivity"
-            android:label="@string/title_activity_emergency"
-            android:theme="@style/Theme.CovidBook.NoActionBar" />
 
+        <!-- libraries -->
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
 
+        <!-- metadata -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/api_key" />
 
+        <!-- activities -->
+        <activity
+            android:name=".SplashActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.CovidBook.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"/>
+        <activity android:name=".GraphActivity" />
         <activity android:name=".MapActivity" />
         <activity android:name=".info.image.ImageChooserActivity" />
         <activity android:name=".info.name.NameActivity" />
+        <activity android:name=".info.age.AgeActivity" />
+        <activity android:name=".ui.authors.AboutAuthorsActivity" />
+        <activity
+            android:name=".ui.emergency.EmergencyActivity"
+            android:label="@string/title_activity_emergency"
+            android:theme="@style/Theme.CovidBook.NoActionBar" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
@@ -53,16 +70,5 @@
             android:name=".RecyclerActivity"
             android:label="@string/app_name"
             android:theme="@style/PreferenceScreen" />
-        <activity android:name=".info.age.AgeActivity" />
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
-
 </manifest>
