@@ -1,13 +1,20 @@
 package com.example.covidbook;
 
+import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.text.Editable;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.SwitchPreferenceCompat;
+
+import com.example.covidbook.info.PersonInfoList;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -45,11 +52,34 @@ public class SettingsActivity extends AppCompatActivity {
                     return true;
                 });
             }
+
+            Preference eraser = findPreference("erase_list");
+            if(eraser != null){
+                eraser.setOnPreferenceClickListener((newValue) -> {
+
+
+                    new AlertDialog.Builder(getContext())
+                            .setTitle("Erase data")
+                            .setMessage("Do you want to delete all your rapports?")
+                            .setView(R.layout.settings_activity)
+                            .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    PersonInfoList.deleteData();
+                                }
+                            }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                        }
+                    }).show();
+                    return true;
+                });
+            }
+        }
+
 //            PreferenceManager.getDefaultSharedPreferences.getBoolean(
 //            resources.getString(R.string.my_bool_setting_key),
 //            resources.getBoolean(R.bool.my_bool_setting_default))
-        }
-
-
     }
+
+
+
 }

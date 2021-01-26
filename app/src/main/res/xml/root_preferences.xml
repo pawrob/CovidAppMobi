@@ -42,6 +42,10 @@
             app:summaryOn="Dark mode on"
             app:title="Toggle dark mode" />
 
+        <Preference
+            app:key="erase_list"
+            app:title="Erase health rapports" />
+
     </PreferenceCategory>
 
     <PreferenceCategory app:title="About">

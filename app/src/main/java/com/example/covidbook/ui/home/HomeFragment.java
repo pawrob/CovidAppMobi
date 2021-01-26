@@ -46,8 +46,8 @@ public class HomeFragment extends Fragment {
     double latitude = 0;
     double longitude = 0;
     public PersonInfoList personList = new PersonInfoList();
-    String msg;
-    int color;
+    String msg = "Submit three rapports to see your status";
+    int color = R.color.design_default_color_primary;
 
     @SuppressLint("ResourceAsColor")
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -61,25 +61,28 @@ public class HomeFragment extends Fragment {
         final TextView textView2 = root.findViewById(R.id.text_status);
 
         personList.setPersonInfoList(PersonInfoList.loadData(App.context,personList.getPersonInfoList()));
+        if(personList.getPersonInfoList().size()>3){
+            double health_status = (personList.getPersonInfoList().get(personList.getPersonInfoList().size()-1).getTemperature()+
+                    +personList.getPersonInfoList().get(personList.getPersonInfoList().size()-2).getTemperature()+
+                    personList.getPersonInfoList().get(personList.getPersonInfoList().size()-3).getTemperature())/3;
+            if(health_status>38){
+                msg = "You have feather! Go to the doctor!";
 
-        double health_status = (personList.getPersonInfoList().get(personList.getPersonInfoList().size()-1).getTemperature()+
-                +personList.getPersonInfoList().get(personList.getPersonInfoList().size()-2).getTemperature()+
-                personList.getPersonInfoList().get(personList.getPersonInfoList().size()-3).getTemperature())/3;
-        if(health_status>38){
-            msg = "You have feather! Go to the doctor!";
+                color = Color.rgb(220,20,60);
+            }
+            else if (health_status<35){
+                msg = "You have hypothermia! Go to the doctor!";
+                color = Color.rgb(135,206,250);
 
-            color = Color.rgb(220,20,60);
+            }
+            else {
+                msg = "You are in a good shape!";
+                color = Color.rgb(50,205,50);
+
+            }
         }
-        else if (health_status<35){
-            msg = "You have hypothermia! Go to the doctor!";
-            color = Color.rgb(135,206,250);
 
-        }
-        else {
-            msg = "You are in a good shape!";
-            color = Color.rgb(50,205,50);
 
-        }
 
 
 //        textView2.setText(String.valueOf(health_status));
