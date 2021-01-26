@@ -132,10 +132,14 @@
     <string name="tab_text_1">Info</string>
     <string name="tab_text_2">Advice</string>
     <string name="tab_text_3">Contact</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="check_your_statistics">Check your statistics</string>
+    <string name="dot">.</string>
+    <string name="temperature">C</string>
+    <string name="icon">Icon</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <!--   Emergency screen -->
+    <!--   Emergency screen   -->
+    <!--   Info   -->
     <string name="info_header">Information about Coronavirus</string>
     <string name="info_1">
         "Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus."\n\n
@@ -154,8 +158,19 @@
     <string name="info_button_4">Situation reports</string>
     <string name="info_button_5">All information on the COVID-19 outbreak</string>
     <string name="stay_informed">Stay informed</string>
-    <string name="check_your_statistics">Check your statistics</string>
-    <string name="dot">.</string>
-    <string name="temperature">C</string>
-    <string name="icon">Icon</string>
+    <!--   Advice   -->
+    <string name="advice_header">Stay safe!</string>
+    <string name="advice_1">\n\nWash your hands</string>
+    <string name="advice_2">\n\nPractice social distancing</string>
+    <string name="advice_3">\n\nWear a mask</string>
+    <string name="advice_4">\n\nTalk to your doctor before stopping any medication</string>
+    <string name="advice_5">\n\nWork from home if you can</string>
+    <string name="advice_6">\n\nDon’t ignore your own symptoms</string>
+    <string name="advice_7">\n\nUnderstand your risk</string>
+    <string name="advice_8">\n\nBe prepared for telemedicine</string>
+    <string name="advice_9">\n\nIn person visits may be necessary</string>
+    <string name="advice_10">\n\nTake care of your physical and mental health</string>
+    <string name="follow_these_tips_to_stay_healthy">Follow these tips to stay healthy!</string>
+    <string name="back_to_home">Back to Home</string>
+
 </resources>

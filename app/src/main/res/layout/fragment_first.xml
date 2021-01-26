@@ -18,7 +18,6 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
-                android:layout_marginBottom="50dp"
                 android:fontFamily="sans-serif-black"
                 android:text="@string/info_header"
                 android:textColor="?colorPrimary"
@@ -34,7 +33,7 @@
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="50dp"
                 android:text="@string/info_1"
@@ -42,7 +41,7 @@
                 app:layout_constraintBottom_toTopOf="@id/info_button_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/header_info" />
+                app:layout_constraintTop_toBottomOf="@+id/header_info" />
 
             <TextView
                 android:id="@+id/stay_info"

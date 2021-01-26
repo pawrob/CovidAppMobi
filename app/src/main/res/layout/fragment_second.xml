@@ -1,27 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.emergency.SecondFragment">
+    android:fillViewport="true"
+    android:orientation="vertical"
+    android:layout_weight="1.0"
+    android:theme="@style/Theme.CovidBook"
+    android:scrollbars="none">
 
-    <TextView
-        android:id="@+id/textview_second"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        tools:context=".ui.emergency.SecondFragment">
 
-    <Button
-        android:id="@+id/button_second"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/previous"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_second" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+            android:id="@+id/youtube_player_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/ll_adv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:showFullScreenButton="false"
+            app:showYouTubeButton="false"
+            app:videoId="xVu_I6WCsto" />
+
+        <LinearLayout
+            android:id="@+id/ll_adv"
+            android:layout_width="match_parent"
+            android:layout_height="2112dp"
+            android:layout_marginBottom="50dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/adv_end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/adv1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/ic_notifications_black_24dp"
+                android:drawableTint="?colorPrimary"
+                android:gravity="center"
+                android:paddingVertical="50dp"
+                android:text="@string/advice_1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="?colorPrimary"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/adv2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?colorPrimary"
+                android:drawableTop="@drawable/ic_notifications_black_24dp"
+                android:drawableTint="?colorOnPrimary"
+                android:gravity="center"
+                android:paddingVertical="50dp"
+                android:shadowColor="?colorPrimaryVariant"
+                android:text="@string/advice_2"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="?colorOnPrimary"
+                android:textSize="18sp" />
+
+
+            <Button
+                android:id="@+id/adv3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/ic_notifications_black_24dp"
+                android:drawableTint="?colorPrimary"
+                android:gravity="center"
+                android:paddingVertical="50dp"
+                android:text="@string/advice_3"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="?colorPrimary"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/adv4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?colorPrimary"
+                android:drawableTop="@drawable/ic_notifications_black_24dp"
+                android:drawableTint="?colorOnPrimary"
+                android:gravity="center"
+                android:paddingVertical="50dp"
+                android:shadowColor="?colorPrimaryVariant"
+                android:text="@string/advice_4"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="?colorOnPrimary"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/adv5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/ic_notifications_black_24dp"
+                android:drawableTint="?colorPrimary"
+                android:gravity="center"
+                android:paddingVertical="50dp"
+                android:text="@string/advice_5"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="?colorPrimary"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/adv6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?colorPrimary"
+                android:drawableTop="@drawable/ic_notifications_black_24dp"
+                android:drawableTint="?colorOnPrimary"
+                android:gravity="center"
+                android:paddingVertical="50dp"
+                android:shadowColor="?colorPrimaryVariant"
+                android:text="@string/advice_6"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="?colorOnPrimary"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/adv7"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/ic_notifications_black_24dp"
+                android:drawableTint="?colorPrimary"
+                android:gravity="center"
+                android:paddingVertical="50dp"
+                android:text="@string/advice_7"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="?colorPrimary"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/adv8"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?colorPrimary"
+                android:drawableTop="@drawable/ic_notifications_black_24dp"
+                android:drawableTint="?colorOnPrimary"
+                android:gravity="center"
+                android:paddingVertical="50dp"
+                android:shadowColor="?colorPrimaryVariant"
+                android:text="@string/advice_8"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="?colorOnPrimary"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/adv9"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/ic_notifications_black_24dp"
+                android:drawableTint="?colorPrimary"
+                android:gravity="center"
+                android:paddingVertical="50dp"
+                android:text="@string/advice_9"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="?colorPrimary"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/adv10"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?colorPrimary"
+                android:drawableTop="@drawable/ic_notifications_black_24dp"
+                android:drawableTint="?colorOnPrimary"
+                android:gravity="center"
+                android:paddingVertical="50dp"
+                android:shadowColor="?colorPrimaryVariant"
+                android:text="@string/advice_10"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="?colorOnPrimary"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/adv_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/follow_these_tips_to_stay_healthy"
+            android:textAlignment="center"
+            android:textColor="?colorPrimary"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/adv_end_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/adv_end_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="50dp"
+            android:background="?colorPrimary"
+            android:text="@string/back_to_home"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
