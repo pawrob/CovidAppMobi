@@ -65,6 +65,7 @@ public class SettingsActivity extends AppCompatActivity {
                             .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     PersonInfoList.deleteData();
+                                    Toast.makeText(App.context,"Data erased",Toast.LENGTH_SHORT).show();
                                 }
                             }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {

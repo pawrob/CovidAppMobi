@@ -61,7 +61,7 @@ public class HomeFragment extends Fragment {
         final TextView textView2 = root.findViewById(R.id.text_status);
 
         personList.setPersonInfoList(PersonInfoList.loadData(App.context,personList.getPersonInfoList()));
-        if(personList.getPersonInfoList().size()>3){
+        if(personList.getPersonInfoList().size()>=3){
             double health_status = (personList.getPersonInfoList().get(personList.getPersonInfoList().size()-1).getTemperature()+
                     +personList.getPersonInfoList().get(personList.getPersonInfoList().size()-2).getTemperature()+
                     personList.getPersonInfoList().get(personList.getPersonInfoList().size()-3).getTemperature())/3;

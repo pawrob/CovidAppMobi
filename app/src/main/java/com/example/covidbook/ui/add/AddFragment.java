@@ -82,7 +82,7 @@ public class AddFragment extends Fragment {
                 System.out.println(personList.toString());
 
                 PersonInfoList.saveData(getContext(),personList.getPersonInfoList());
-                Intent startIntent = new Intent(getActivity(), com.example.covidbook.RecyclerActivity.class);
+                Intent startIntent = new Intent(getActivity(), com.example.covidbook.MainActivity.class);
                 startActivity(startIntent);
             }
         });
