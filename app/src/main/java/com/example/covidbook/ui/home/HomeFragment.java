@@ -2,8 +2,6 @@ package com.example.covidbook.ui.home;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -11,7 +9,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.location.Location;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.LayoutInflater;
@@ -21,23 +18,24 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
-import com.example.covidbook.App;
+
 import com.example.covidbook.GpsTracker;
-import com.example.covidbook.MapActivity;
 import com.example.covidbook.R;
+import com.example.covidbook.RecyclerActivity;
 import com.example.covidbook.info.PersonInfoList;
 import com.example.covidbook.ui.emergency.EmergencyActivity;
-import com.example.covidbook.RecyclerActivity;
+import com.google.android.material.color.MaterialColors;
+
 import static android.content.Context.MODE_PRIVATE;
+import static com.example.covidbook.App.context;
 
 
 public class HomeFragment extends Fragment {
@@ -47,11 +45,12 @@ public class HomeFragment extends Fragment {
     double longitude = 0;
     public PersonInfoList personList = new PersonInfoList();
     String msg = "Submit three rapports to see your status";
-    int color = R.color.design_default_color_primary;
+    int color ;
 
     @SuppressLint("ResourceAsColor")
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        context.setTheme(R.style.Theme_CovidBook);
 
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
@@ -60,7 +59,9 @@ public class HomeFragment extends Fragment {
         final TextView textView = root.findViewById(R.id.text_home);
         final TextView textView2 = root.findViewById(R.id.text_status);
 
-        personList.setPersonInfoList(PersonInfoList.loadData(App.context,personList.getPersonInfoList()));
+        color = MaterialColors.getColor(context, R.attr.colorSecondary, Color.WHITE);
+
+        personList.setPersonInfoList(PersonInfoList.loadData(context,personList.getPersonInfoList()));
         if(personList.getPersonInfoList().size()>=3){
             double health_status = (personList.getPersonInfoList().get(personList.getPersonInfoList().size()-1).getTemperature()+
                     +personList.getPersonInfoList().get(personList.getPersonInfoList().size()-2).getTemperature()+
@@ -68,28 +69,23 @@ public class HomeFragment extends Fragment {
             if(health_status>38){
                 msg = "You have feather! Go to the doctor!";
 
-                color = Color.rgb(220,20,60);
+                color = MaterialColors.getColor(context, R.attr.colorPrimary, Color.RED);
             }
             else if (health_status<35){
                 msg = "You have hypothermia! Go to the doctor!";
-                color = Color.rgb(135,206,250);
+                color = MaterialColors.getColor(context, R.attr.colorPrimary, Color.YELLOW);
 
-            }
-            else {
-                msg = "You are in a good shape!";
-                color = Color.rgb(50,205,50);
-
+        }
+        else {
+            msg = "You are in a good shape!";
+            color = MaterialColors.getColor(context, R.attr.colorPrimary, Color.GREEN);
             }
         }
 
-
-
-
-//        textView2.setText(String.valueOf(health_status));
         textView2.setText(String.valueOf(msg));
         textView2.setTextColor(color);
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(App.context);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         String nameFromSetings = sharedPreferences.getString("name", null);
         textView.setText(nameFromSetings);
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -110,7 +106,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onChanged(@Nullable Bitmap b) {
 
-                SharedPreferences sharedPreferences = App.context.getSharedPreferences("shared preferences", MODE_PRIVATE);
+                SharedPreferences sharedPreferences = context.getSharedPreferences("shared preferences", MODE_PRIVATE);
                 String namePreferance123 = sharedPreferences.getString("namePreferance", null);
                 if(namePreferance123 !=null){
                     String bitmap = sharedPreferences.getString("imagePreferance", null);
@@ -122,11 +118,11 @@ public class HomeFragment extends Fragment {
         });
 
         requestPermissions( new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, 123);
-        GpsTracker gt = new GpsTracker(App.context);
+        GpsTracker gt = new GpsTracker(context);
         Location location = gt.getLocation();
 
         if( location == null){
-            Toast.makeText(App.context,"GPS not available ",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,"GPS not available ",Toast.LENGTH_SHORT).show();
         }else {
 
             latitude = location.getLatitude();

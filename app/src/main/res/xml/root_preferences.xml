@@ -64,6 +64,8 @@
 <!--            app:key="sync"-->
 <!--            app:title="@string/sync_title" />-->
 
+
     </PreferenceCategory>
+
 
 </PreferenceScreen>
