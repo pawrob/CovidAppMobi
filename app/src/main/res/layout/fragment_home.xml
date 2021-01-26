@@ -94,11 +94,11 @@
                 android:layout_height="75dp"
                 android:text="Learn more about COVID-19" />
 
-            <Button
-                android:id="@+id/default_clinic_button"
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:text="View your default clinic" />
+<!--            <Button-->
+<!--                android:id="@+id/default_clinic_button"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="75dp"-->
+<!--                android:text="View your default clinic" />-->
 
 
         </LinearLayout>

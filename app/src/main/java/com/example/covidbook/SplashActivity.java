@@ -1,10 +1,16 @@
 package com.example.covidbook;
 
 import android.app.Activity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
+
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.example.covidbook.R;
 
@@ -30,5 +36,29 @@ public class SplashActivity extends Activity {
                 SplashActivity.this.finish();
             }
         }, SPLASH_DISPLAY_LENGTH);
+
+
+        createNotificationChannel();
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(App.context, "appChannel")
+                .setSmallIcon(R.drawable.ic_covidbook)
+                .setContentTitle("CovidBook")
+                .setContentText("Remember to update status every day!")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(App.context);
+
+        notificationManagerCompat.notify(100,builder.build());
+    }
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "covidBookChannel";
+            String description = "Chennel for app notifies";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("appChannel", name, importance);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 }

@@ -2,12 +2,15 @@ package com.example.covidbook.ui.home;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.LayoutInflater;
@@ -20,6 +23,8 @@ import android.widget.Toast;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -103,9 +108,10 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        createButton(R.id.default_clinic_button, MapActivity.class, root);
+//        createButton(R.id.default_clinic_button, MapActivity.class, root);
         createButton(R.id.emergency_screen_button, EmergencyActivity.class, root);
         createButton(R.id.statusButton, RecyclerActivity.class, root);
+
 
 
         return root;
@@ -127,4 +133,6 @@ public class HomeFragment extends Fragment {
         return BitmapFactory
                 .decodeByteArray(decodedByte, 0, decodedByte.length);
     }
+
+
 }
