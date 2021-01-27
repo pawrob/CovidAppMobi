@@ -15,7 +15,7 @@
         android:layout_marginTop="200dp"
         android:layout_marginBottom="200dp"
         android:contentDescription="@string/icon"
-        android:src="@drawable/ic_covidbook"
+        android:src="@drawable/ic_logo_splash"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
