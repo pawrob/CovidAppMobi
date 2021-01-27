@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment {
     double longitude = 0;
     public PersonInfoList personList = new PersonInfoList();
     String msg = "Submit three rapports to see your status";
-    int color ;
+    int color;
 
     @SuppressLint("ResourceAsColor")
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -59,7 +59,6 @@ public class HomeFragment extends Fragment {
         final TextView textView = root.findViewById(R.id.text_home);
         final TextView textView2 = root.findViewById(R.id.text_status);
 
-        color = MaterialColors.getColor(context, R.attr.colorSecondary, Color.WHITE);
 
         personList.setPersonInfoList(PersonInfoList.loadData(context,personList.getPersonInfoList()));
         if(personList.getPersonInfoList().size()>=3){
@@ -68,22 +67,22 @@ public class HomeFragment extends Fragment {
                     personList.getPersonInfoList().get(personList.getPersonInfoList().size()-3).getTemperature())/3;
             if(health_status>38){
                 msg = "You have feather! Go to the doctor!";
-
-                color = MaterialColors.getColor(context, R.attr.colorPrimary, Color.RED);
+                color = MaterialColors.getColor(context, R.attr.colorError, Color.RED);
+                textView2.setTextColor(color);
             }
             else if (health_status<35){
                 msg = "You have hypothermia! Go to the doctor!";
-                color = MaterialColors.getColor(context, R.attr.colorPrimary, Color.YELLOW);
-
-        }
-        else {
-            msg = "You are in a good shape!";
-            color = MaterialColors.getColor(context, R.attr.colorPrimary, Color.GREEN);
+                color = MaterialColors.getColor(context, R.attr.colorWarning, Color.YELLOW);
+                textView2.setTextColor(color);
+            }
+            else {
+                msg = "You are in a good shape!";
+                color = MaterialColors.getColor(context, R.attr.colorOK, Color.GREEN);
+                textView2.setTextColor(color);
             }
         }
 
         textView2.setText(String.valueOf(msg));
-        textView2.setTextColor(color);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         String nameFromSetings = sharedPreferences.getString("name", null);

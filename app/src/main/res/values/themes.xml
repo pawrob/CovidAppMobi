@@ -12,6 +12,10 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
+        <item name="colorError">@color/design_default_color_error</item>
+        <item name="colorWarning">@color/yellow</item>
+        <item name="colorOK">@color/green</item>
+        <item name="colorMisc">@color/gray</item>
     </style>
 
     <style name="RatingBar" parent="Theme.CovidBook">
