@@ -3,7 +3,6 @@ package com.example.covidbook;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.text.Editable;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
@@ -75,10 +74,6 @@ public class SettingsActivity extends AppCompatActivity {
                 });
             }
         }
-
-//            PreferenceManager.getDefaultSharedPreferences.getBoolean(
-//            resources.getString(R.string.my_bool_setting_key),
-//            resources.getBoolean(R.bool.my_bool_setting_default))
     }
 
 
