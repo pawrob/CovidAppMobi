@@ -12,6 +12,5 @@ Project is created with:
 * gson
 
 ## Screenshots
-![homescreen](./Screenshots/1.png)
-![add_status](./Screenshots/2.png)
-![recent_status](./Screenshots/3.png)
+<img src="./Screenshots/1.png"  width="200px"/>       <img src="./Screenshots/2.png"  width="200px"/>       <img src="./Screenshots/3.png"  width="200px"/><br/>
+<img src="./Screenshots/4.png"  width="200px"/>       <img src="./Screenshots/5.png"  width="200px"/>       <img src="./Screenshots/6.png"  width="200px"/>
