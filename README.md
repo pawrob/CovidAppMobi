@@ -1,4 +1,4 @@
-# CovidAppMobi
+# CovidBook
 Repository for Covid application
 
 # Introduction
