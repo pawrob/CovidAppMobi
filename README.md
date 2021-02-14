@@ -13,5 +13,5 @@ Project is created with:
 
 ## Screenshots
 ![homescreen](./Screenshots/1.png)
-![homescreen](./Screenshots/2.png)
-![homescreen](./Screenshots/3.png)
+![add_status](./Screenshots/2.png)
+![recent_status](./Screenshots/3.png)
