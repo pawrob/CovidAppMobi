@@ -12,3 +12,6 @@ Project is created with:
 * gson
 
 ## Screenshots
+![homescreen](./Screenshots/1.png)
+![homescreen](./Screenshots/2.png)
+![homescreen](./Screenshots/3.png)
