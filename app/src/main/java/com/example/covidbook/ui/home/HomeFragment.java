@@ -66,7 +66,7 @@ public class HomeFragment extends Fragment {
                     +personList.getPersonInfoList().get(personList.getPersonInfoList().size()-2).getTemperature()+
                     personList.getPersonInfoList().get(personList.getPersonInfoList().size()-3).getTemperature())/3;
             if(health_status>38){
-                msg = "You have feather! Go to the doctor!";
+                msg = "You have fever! Go to the doctor!";
                 color = MaterialColors.getColor(context, R.attr.colorError, Color.RED);
                 textView2.setTextColor(color);
             }
